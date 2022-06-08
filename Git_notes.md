@@ -40,7 +40,7 @@ git rm --cached <file>
 If you want to add files even more quickly, you can skip the staging area and commit all of the untracked files with,
 
 ```git
-git commit -a
+git commit -a -m <commit message>
 ```
 
 You can also create a `.gitignore` file if there are any files which you wish to omit from the repository. For example, if you want to ignore mac's `.DS_Store` files, then in `.gitignore` you would write,
@@ -57,6 +57,24 @@ Finally, when you ar ready to commit, you can use
 git commit -m "your message describing the commit"
 ```
 
+## Restoring Changes
+
+Discarding or restoring changes to a specific file will depend on whether that file has been committed or not. If it is still in the staging area, you can discard changes with,
+
+```git
+git restore <file>
+```
+
+If the file has already been committed, then you can checkout that particular file at an older commit,
+
+```git
+git checkout <revision key> -- <path to file>
+```
+
+### Reset
+
+`git rest` essentially moves the head pointer. If you use the `--hard` option, it also resets all of the contents in your working directory. For example, using `git reset [<commit>] -- hard` will reset all of the files in your working directory to the commit you specified, regardless of whether you have staged or committed any changes. Be careful with this power as it is easy to loose work this way.
+
 ## Git Ignore
 
 As mentioned above, the `.gitignore` file allows you to tell Git what files to ignore. There are many handy tricks you can use to make specific rules in these files. Here are a few useful ones,
@@ -68,7 +86,7 @@ As mentioned above, the `.gitignore` file allows you to tell Git what files to i
 
 GitHub offers a large list of [template `.gitignore`.](https://github.com/github/gitignore) files for many languages.
 
-## Branching
+## Branching and Merging
 
 Create a new [branch](https://git-scm.com/docs/git-branch)
 
@@ -88,17 +106,39 @@ Alternatively, you can use the -b specifier to create a new branch and switch to
 git checkout -b <branch name>
 ```
 
+If you need to rename a local branch, you can use `git branch --move <old branch name>  <new branch name>`. If you are working on a remote repository, you can push the new branch onto the remote,
+
+```git
+git push --set-upstream origin <new branch name>
+```
+
+You will then need to remove the old branch from the remote using,
+
+```git
+git push origin --delete <old branch>
+```
+
 Switching branches changes the files in the working directory.
 
-Note that `git log` only shows the commit history below the branch you are currently checked out on
+If you want to see all of your branches, you can use `git branch` without any arguments.
 
-Another option is to use `git switch`. Switch is specifically designed for branched, whereas checkout can also restore files when used as a command on a file
+Note that `git log` only shows the commit history below the branch you are currently checked out on. If you want to see the log for all branches, use `git log --all`.
+
+Another option is to use `git switch`. Switch is specifically designed for branches, whereas checkout can also restore files when used as a command on a file
 
 Don’t forge to delete the old branch after you have merged it with another. To do this, you can use,
 
 ```git
 git branch -d <branch>
 ```
+
+If you are unsure whether a branch can be deleted, you can use,
+
+```git
+git branch --merged
+```
+
+Branches that are listed without `*` in front of them have been merged and are safe to delete. Furthermore, `git branch -d <branch>` will fail if you have unmerged changes and give you an error.
 
 ## Working with GitHub
 
@@ -118,7 +158,7 @@ will copy my [notes repo](https://github.com/johnfmcrae/Notes). You can also ren
 git clone https://github.com/johnfmcrae/Notes localNotes
 ```
 
-### Uploading and Existing Repository to GitHub
+### Uploading an Existing Repository to GitHub
 
 Let's say you've created a local repository on your computer and you are ready to upload it to GitHub. This is quite simple with GitHub CLI. You can either create a new repository interactively, or you can create it manually. To enter interactive mode,
 
@@ -147,6 +187,31 @@ If this is correct, you can push to the remote repository using,
 ```git
 git push -u origin head
 ```
+
+## Combining Commits
+
+If you have many local commits in your Git repository, you can go into the log and combine multiple commits into one so that you can provide a single commit to the remote instead of adding all of your individual commits. The easiest way to do this is to do a soft reset on the head pointer,
+
+```bash
+git reset --soft HEAD~2 
+git commit -m "new commit message"
+```
+
+However, this will overwrite the old commit messages and will require you to write a new message. If you want to combine the messages you already wrote, you can use `git rebase` in interactive mode,
+
+```git
+git rebase -i HEAD~2
+```
+
+This will launch a window with a bunch of options of how to squash your commits. You will need to choose one commit with `pick` and then squash the other commits into that chosen commit with `squash`. Git will want you to "squash upwards", so you will need to pick the *older* commit. Pay attention to the order in which the commits are given in the interactive rebase editor, it should list the commits oldest to newest. If you squash the commits correctly, you will be prompted with a second editor which will let you edit the combined commit message. For more info, see [this Stack Overflow post](https://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one-if-i-already-started-rebase)
+
+Lastly, you can also reset based on a commit hash, if you don't want to have to count how many commits you're merging,
+
+```git
+git rebase -i <commit hash>
+```
+
+You will need to specify the hash *before* the one you want to squash at. You can either just enter the hash of the commit before or you can use the `^` character on the hash you want to squash at, which means the same thing \[[source](https://stackoverflow.com/questions/41464752/git-rebase-interactive-the-last-n-commits)\].
 
 ## Quick Reference to Common and Useful Git Commands
 
