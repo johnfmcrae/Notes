@@ -140,6 +140,20 @@ git branch --merged
 
 Branches that are listed without `*` in front of them have been merged and are safe to delete. Furthermore, `git branch -d <branch>` will fail if you have unmerged changes and give you an error.
 
+## Remote Branches
+
+You can get the information from a remote branch by using the infamous `git clone` command. Remote branches take the form of `<remote>/<branch>`. By default, this is named as `origin/master`, but you can rename the origin locally when you clone the repository by using,
+
+```git
+git clone -o <remote name>
+```
+
+Putting changes into the remote requires you to run the `git push` command. The default push command either expects you to be pushing from a local branch to a remote branch which have the same name, or in the event where the branch does not exist in the remote repository, it will create the branch on the remote with the same name as the local branch. If you want to rename  a new branch on the remote repo, or push from a branch that has a different name on the local repo into the remote repo, you can use,
+
+```git
+git push origin <local name>:<remote name>
+```
+
 ## Working with GitHub
 
 [GitHub](https://github.com/) is a great place to upload your repositories and share them with others. To interact with GitHub, you can either go to your profile in your web browser, or use the command line version, [GitHub CLI](https://cli.github.com/), directly in terminal. I will be using GitHub CLI here.
