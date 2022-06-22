@@ -154,6 +154,22 @@ Putting changes into the remote requires you to run the `git push` command. The 
 git push origin <local name>:<remote name>
 ```
 
+## Rebasing
+
+A rebase can provide the same result as a merge: taking one branch and bringing it into another. But whereas a merge simply combines the pointers from two branches, a rebase will apply the changes themselves and create a new commit. In the simplest case, performing a rebase will result in a linear history. As an example, if you were to have a `master` and an `experiment` branch, you could rebase he experiment onto the master with,
+
+```git
+git checkout experiment
+git rebase master
+```
+
+then do a merge to re-assign the master pointer to the most recent commit, created by the rebase,
+
+```git
+git checkout master
+git merge experiment
+```
+
 ## Working with GitHub
 
 [GitHub](https://github.com/) is a great place to upload your repositories and share them with others. To interact with GitHub, you can either go to your profile in your web browser, or use the command line version, [GitHub CLI](https://cli.github.com/), directly in terminal. I will be using GitHub CLI here.
