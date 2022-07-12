@@ -73,7 +73,7 @@ git checkout <revision key> -- <path to file>
 
 ### Reset
 
-`git rest` essentially moves the head pointer. If you use the `--hard` option, it also resets all of the contents in your working directory. For example, using `git reset [<commit>] -- hard` will reset all of the files in your working directory to the commit you specified, regardless of whether you have staged or committed any changes. Be careful with this power as it is easy to loose work this way.
+`git rest` essentially moves the head pointer. If you use the `--hard` option, it also resets all of the contents in your working directory. For example, using `git reset [<commit>] --hard` will reset all of the files in your working directory to the commit you specified, regardless of whether you have staged or committed any changes. Be careful with this power as it is easy to loose work this way.
 
 ## Git Ignore
 
