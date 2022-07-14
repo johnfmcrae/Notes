@@ -57,6 +57,12 @@ Finally, when you ar ready to commit, you can use
 git commit -m "your message describing the commit"
 ```
 
+If you messed up your commit message and need to edit it, you can use,
+
+```git
+git commit --ammend
+```
+
 ## Restoring Changes
 
 Discarding or restoring changes to a specific file will depend on whether that file has been committed or not. If it is still in the staging area, you can discard changes with,
@@ -73,7 +79,13 @@ git checkout <revision key> -- <path to file>
 
 ### Reset
 
-`git rest` essentially moves the head pointer. If you use the `--hard` option, it also resets all of the contents in your working directory. For example, using `git reset [<commit>] --hard` will reset all of the files in your working directory to the commit you specified, regardless of whether you have staged or committed any changes. Be careful with this power as it is easy to loose work this way.
+`git rest` essentially moves the head pointer. If you use the `--hard` option, it also resets all of the contents in your working directory. For example, using,
+
+```git
+git reset [<commit>] --hard
+```
+
+will reset all of the files in your working directory to the commit you specified, regardless of whether you have staged or committed any changes. Be careful with this power as it is easy to loose work this way.
 
 ## Git Ignore
 
