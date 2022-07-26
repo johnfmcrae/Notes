@@ -60,7 +60,7 @@ git commit -m "your message describing the commit"
 If you messed up your commit message and need to edit it, you can use,
 
 ```git
-git commit --ammend
+git commit --amend
 ```
 
 ## Restoring Changes
