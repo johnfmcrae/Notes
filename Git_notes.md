@@ -43,7 +43,7 @@ If you want to add files even more quickly, you can skip the staging area and co
 git commit -a -m <commit message>
 ```
 
-You can also create a `.gitignore` file if there are any files which you wish to omit from the repository. For example, if you want to ignore mac's `.DS_Store` files, then in `.gitignore` you would write,
+You can also create a `.gitignore` file (see below) if there are any files which you wish to omit from the repository. For example, if you want to ignore mac's `.DS_Store` files, then in `.gitignore` you would write,
 
 ```git
 *.DS_Store
@@ -61,6 +61,52 @@ If you messed up your commit message and need to edit it, you can use,
 
 ```git
 git commit --amend
+```
+
+## Customizing the Log Output
+
+To view the names and status of changed files,
+
+```git
+git log --name-status
+```
+
+## Stashing Work
+
+You can use the **stashing** to hold onto them changes in your project that you'd like to save but that aren't ready to commit. To start, use the command,
+
+```git
+git stash push
+```
+
+This will save your changes on the stack in a work in progress (WIP) area. You can stash more than once, so if you want to see the stashes you've made, you can use
+
+```git
+git stash list
+```
+
+Once you're ready to restore the stashed changes, run
+
+```git
+git stash apply
+```
+
+In the case where you have more than one stash, Git will assume that you want the most recent stash. If you need to specify a different stash, you can add specify that stash as an input to the apply, for example,
+
+```git
+git stash apply 1
+```
+
+Once you have applied, you need to clean up your old stash with,
+
+```git
+git stash drop
+```
+
+Alternatively, you can apply and remove a stash in one go with,
+
+```git
+git stash pop
 ```
 
 ## Restoring Changes
