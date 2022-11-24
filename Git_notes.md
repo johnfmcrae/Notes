@@ -214,7 +214,7 @@ git push origin <local name>:<remote name>
 
 ## Rebasing
 
-A rebase can provide the same result as a merge: taking one branch and bringing it into another. But whereas a merge simply combines the pointers from two branches, a rebase will apply the changes themselves and create a new commit. In the simplest case, performing a rebase will result in a linear history. As an example, if you were to have a `master` and an `experiment` branch, you could rebase he experiment onto the master with,
+A rebase can provide the same result as a merge: taking one branch and bringing it into another. But whereas a merge simply combines the pointers from two branches, a rebase will apply the changes themselves and create a new commit. In the simplest case, performing a rebase will result in a linear history. As an example, if you were to have a `master` and an `experiment` branch, you could rebase the experiment onto the master with,
 
 ```git
 git checkout experiment
