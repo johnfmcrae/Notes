@@ -1,36 +1,8 @@
-# Python Notes
-
-These are my collection of notes for the Python programming language. I am still fairly new to Python, so the notes start from the basics. However, since I know C, C++ and MATLAB, I'm going in with an understanding of the principles of programming, including object-oriented programming.
-
-## Installations, Set Up and Python in the Terminal
-
-### Interactive Mode
-
-To enter **interactive mode** from the command line, simply use the command `python3` or `python3.x` where *x* is your current version of Python.
-
-To view all variables, use `dir()`
-
-To delete a variable, use `del <variable>`
-
-To get a newline use `\`
-
-To quit interactive mode, use `quit()`
-
-### pip package installer
-
-To install from pip in the terminal, use
-
-```sh
-python3 -m pip install "SomeProject"
-```
-
-Note the first two commands, `python3 -m` as many installation instructions simply say `pip install "SomeProject"`
-
-## Python Basics
+# Python Basics
 
 This document summarizes some of the basic rules and syntax of Python. It roughly covers sections 1 through 4.7 of [the Python Tutorial](https://docs.python.org/3/tutorial/index.html)
 
-### Variables
+## Variables
 
 For more detail, see [the Python Tutorial](https://docs.python.org/3/tutorial/introduction.html#lists)
 
@@ -52,7 +24,7 @@ A couple other notes from the above code:
 1. Comments are signaled with the `#` character
 2. Lines are ended with a newline character; no semi-colons required
 
-#### Numbers
+### Numbers
 
 In Python, you do not define the type of number as you would in other languages such as C. However, Python does differentiate between integers and floats. For example,
 
@@ -65,7 +37,7 @@ The `/` operator performs floating point division. If you want integer division,
 
 You can also perform casting, for example `print(float(3))` prints `3.0`.
 
-#### Strings
+### Strings
 
 Python strings are a sequence of characters. You can define a string with single quotes `'...'`, double quotes `"..."`, or triple quotes, either `'''...'''` or `"""..."""`. Triple quotes allow you to define multi-line strings.
 
@@ -111,7 +83,7 @@ A useful diagram to visualize slicing and indices:
 -6  -5  -4  -3  -2  -1
 ```
 
-#### Lists
+### Lists
 
 A **list** in Python is a compound data type specified using square brackets and comma-separated inputs.
 
@@ -130,9 +102,9 @@ Lists are **mutable**. You can change elements directly with the `[n]` notation,
 [1, 2, 2] + [4]       # [1, 2, 2, 4]
 ```
 
-### Boolean Operators
+## Boolean Operators
 
-#### Comparative operators
+### Comparative operators
 
 Like C
 
@@ -143,7 +115,7 @@ Like C
 - `<=`
 - `>=`
 
-#### Logical Operators
+### Logical Operators
 
 Keywords:
 
@@ -151,7 +123,7 @@ Keywords:
 - `or`  or `|`
 - `not`
 
-### Control Flow
+## Control Flow
 
 Python uses indentation for control flow. If you need some blank space, you can use the `pass` statement, for example,
 
@@ -161,7 +133,7 @@ while True:
 a = 1    # some more valid code
 ```
 
-#### Loops
+### Loops
 
 Loops are signaled by the `:` operator. To generate the first 10 Fibonacci numbers, for example,
 
@@ -185,11 +157,11 @@ for w in words:
 # be 2
 ```
 
-#### Conditionals
+### Conditionals
 
 Similar to loops, conditionals are signaled with `:` and indentation. In Python there is **`if`**, **`elif`** and **`else`**.
 
-#### The `break` and `continue` Keywords
+### The `break` and `continue` Keywords
 
 The `break` keyword works like that of C, when used it will exit the current `for` or `while` loop.
 
@@ -205,11 +177,11 @@ for num in range(2, 10):
     print("Found an odd number", num)
 ```
 
-### Basic Input and Output
+## Basic Input and Output
 
 To print to the console, use the `print()` function
 
-#### Formatted String Literals
+### Formatted String Literals
 
 You can add a variable to a print function like you would in C with `printf("a = %d", a)` as follows,
 
@@ -217,7 +189,7 @@ You can add a variable to a print function like you would in C with `printf("a =
 print(f'a = {a}')
 ```
 
-### The with Statement
+## The with Statement
 
 Briefly, **`with`** deals with some exception handling and what is known as **context management** in a more concise way. An example from [the Pyhton docs](https://docs.python.org/3/reference/compound_stmts.html#with),
 
@@ -249,85 +221,4 @@ finally:
         exit(manager, None, None, None)
 ```
 
-## Reading and Writing Python Files
-
-To access a file, use the `open()` funciton,
-
-```py
-f = open('workfile', 'w')
-```
-
-Files can be opened in different modes, which are,
-
-- `'w'` write
-- `'r'` read
-- `'a'` append
-- `'r+'` reading and writing
-
-By default, a file opened without the mode specifier is set to `'r'`. Adding `'b'` to the mode specifier, for example as `'rb+'`, sets the file stream to binary mode.
-
-The explicit way of file handling is similar to that of C. For example, you could print some text from a file like so,
-
-```py
-file = open('welcome.txt')
-data = file.read()
-print data
-file.close()
-```
-
-However, the recommended way of handling file I/O is by using the **`with`** statement,
-
-```py
-with open('welome.txt.') as file:
-    data = file.read()
-    print data
-# file closed by with statement exit context manager
-```
-
-For more info on the **`with`** statement, see [Python Basics](Python%20Basics.md).
-
-It is important to *either* use a **`with`** statement or use `f.close()` on a file so that it is properly freed up after use.
-
-### Methods of File Objects
-
-Once a file, `f` is opened it can be used to,
-
-- read using `f.read(size)`, where `size` is an optional numeric arguments either in characters in normal mode or in bytes if in binary mode
-- read a single line with `f.readline()`
-- write using `f.write(string)`, which will return the number of characters written
-
-## Appendix: Useful Functions in Python
-
-For the full list of Python's built in functions, see [the documentation](https://docs.python.org/3/library/functions.html)
-
----
-
-```py
-str.join(iterable)
-```
-
-Concatenates the elements in `iterable` into a single string. Example,
-
-```py
->>> a = ['ham','eggs']
->>> s = ''.join(a)
-hameggs
-```
-
----
-
-```py
-len(s)
-```
-
-Return the length of a list or a string
-
----
-
-```py
-range(stop)
-range(start, stop)
-range(start, stop, step)
-```
-
-Range returns an immutable sequence of numbers with the given inputs. Strictly speaking, it is not a function.
+[Contents](_main_Python_notes.md)
