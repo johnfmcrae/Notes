@@ -8,6 +8,8 @@ This is my personal collection of notes for the Python programming language. The
 
 ### [Python Basics](Python_basics.md)
 
+### [Data Structures in Python](Data_structures.md)
+
 ### [Reading and Writing Python Files](Python_file_IO.md)
 
 ### [Useful Functions in Python](Useful_python_functions.md)

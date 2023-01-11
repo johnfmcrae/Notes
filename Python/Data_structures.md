@@ -71,4 +71,24 @@ False
 
 ## Dictionaries
 
-A *dictionary* is the Python term for an [associative array](https://en.wikipedia.org/wiki/Associative_array), which is also known as a *map* in other languages.
+A *dictionary* is the Python term for an [associative array](https://en.wikipedia.org/wiki/Associative_array), which is also known as a *map* in other languages. Dictionaries access values by assigning them a unique *key*. Keys can be any immutable type, such as a string or a number. Dictionaries are initialized using a comma-separated list of key-value pairs within curly braces,
+
+```py
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel
+{'jack': 4098, 'sape': 413}
+```
+
+Entries can be added to the dictionary using a list-like notation. Similarly, ou can access individual values by entering its key as you would when indexing a list,
+
+```py
+>>> tel['guido'] = 4127
+>>> tel
+{'jack': 4098, 'sape': 4139, 'guido': 4127}
+>>> tel['jack']
+4098
+```
+
+Dictionaries also have the handy **`in`** operator which will return a boolean indicating whether or not a key is in a given dictionary.
+
+[Contents](_main_Python_notes.md)

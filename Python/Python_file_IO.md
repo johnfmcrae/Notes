@@ -33,7 +33,7 @@ with open('welome.txt.') as file:
 # file closed by with statement exit context manager
 ```
 
-For more info on the **`with`** statement, see [Python Basics](Python%20Basics.md).
+For more info on the **`with`** statement, see [Python Basics](Python_basics.md).
 
 It is important to *either* use a **`with`** statement or use `f.close()` on a file so that it is properly freed up after use.
 
