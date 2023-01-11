@@ -24,7 +24,29 @@ Using **`del`** without and index deletes the entire variable.
 
 ## Tuples and Sequences
 
-to do
+Tuples are another data type which belong to the *Sequence* category, along with *Lists* and *Ranges*. Tuples are similar to lists, however unlike lists they are *immutable*. A tuple is constructed with commas and are displayed within parentheses,
+
+```py
+>>> t = 1234, 2222, 'abc'
+>>> t
+(1234, 2222, 'abc')
+```
+
+You can also construct tuples using parentheses. Python also allows for some conveniences such as nesting,
+
+```py
+>>> a = (1, 4, 7)
+>>> b = a, (5, 3)
+>>> b
+(1, 4, 7, 5, 3)
+```
+
+Finally, empty and single element tuples are defined as follows,
+
+```py
+>>> empty = ()
+>>> singleton = 'val', # <- note the comma
+```
 
 ## Sets
 
