@@ -71,7 +71,7 @@ False
 
 ## Dictionaries
 
-A *dictionary* is the Python term for an [associative array](https://en.wikipedia.org/wiki/Associative_array), which is also known as a *map* in other languages. Dictionaries access values by assigning them a unique *key*. Keys can be any immutable type, such as a string or a number. Dictionaries are initialized using a comma-separated list of key-value pairs within curly braces,
+Python offers the *dictionary* as an an [associative array](https://en.wikipedia.org/wiki/Associative_array) type. Recall that unlike maps, dictionaries can have multiple *values* per *key*. Keys can be any immutable type, such as a string or a number. Dictionaries are initialized using a comma-separated list of key-value pairs within curly braces,
 
 ```py
 >>> tel = {'jack': 4098, 'sape': 4139}
