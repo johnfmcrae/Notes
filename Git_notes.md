@@ -71,6 +71,12 @@ To view the names and status of changed files,
 git log --name-status
 ```
 
+To see a graph of the current branches,
+
+```git
+git log --graph
+```
+
 ## Stashing Work
 
 You can use the **stashing** to hold onto them changes in your project that you'd like to save but that aren't ready to commit. To start, use the command,
