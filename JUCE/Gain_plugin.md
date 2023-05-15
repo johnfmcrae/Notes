@@ -182,3 +182,5 @@ Distortion01AudioProcessorEditor::Distortion01AudioProcessorEditor (Distortion01
     setSize (200, 300);
 }
 ```
+
+[contents](_main_JUCE_notes.md)
