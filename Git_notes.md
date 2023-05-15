@@ -79,7 +79,7 @@ git log --graph
 
 ## Stashing Work
 
-You can use the **stashing** to hold onto them changes in your project that you'd like to save but that aren't ready to commit. To start, use the command,
+You can use the **stashing** to hold onto the changes in your project that you'd like to save but that aren't ready to commit. To start, use the command,
 
 ```git
 git stash push
