@@ -17,7 +17,7 @@ int main() {
 
 Let's note a few syntactical features of the lambda. First, the square brackets `[]` is the **lambda-introducer**, which tells the compiler to create a lambda function. Next, we have the **trailing-return-type**, `->`, which is an optional specifier which let's us choose the return type of the lambda. We don't actually need to use `->` in the above example, since the return type is not ambiguous. Finally, note that the lambda is terminated with a semicolon after the curly bracket, `};`, which is easy to forget!
 
-You can take the anonymity of the function one step further and define in directly in the input parameter list of another function if you want. For example, let's say we want to use a function to tell if a number is odd or not,
+You can take the anonymity of the function one step further and define it directly in the input parameter list of another function if you want. For example, let's say we want to use a function to tell if a number is odd or not,
 
 ```cpp
 bool IsOdd(int n) {
@@ -52,4 +52,4 @@ int main() {
 }
 ```
 
-Note that in the above example we didn't need to evaluate the anonymous function due to the nature of the `count_in` function. However, in most cases you do need to provide an input to an anonymous function with `()`.
+Note that in the above example we didn't need to evaluate the anonymous function due to the nature of the `count_if` function. However, in most cases you do need to provide an input to an anonymous function with `()`.
