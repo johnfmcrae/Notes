@@ -23,6 +23,52 @@ int *p1 {nullptr};
 
 This is because in C and C++, when a pointer is created it points to what is called a *bad value* by default. Dereferencing a bad value can lead to crashes and other issues in the program, so it si best to avoid making these at all by initializing a pointer to null.
 
+## Pass by Pointer and Pass by Reference
+
+What do you do when you have a massive array that you don't want to copy and paste around every time you need to pass it into a function? Pass by reference.
+
+```cpp
+void addConstantToVector(vector<int>& returnVector, int constant) {
+    for (auto it = returnVector.begin(); it < returnVector.end(); it++) {
+        *it += constant;
+    }
+}
+```
+
+Pass by reference is nice because you get the benefit of moving data around by a reference without having to worry about dereferencing. However, you can always go old-school and pass by pointer, which will do the same thing.
+
+```cpp
+using namespace std;
+
+void tripleValueByReference(int& value) {
+    value *= 3;
+}
+
+void tripleValueByPointer(int* value) {
+    *value *= 3;
+}
+
+int main()
+{
+    auto testValue = 4;
+    cout << "auto testValue = 4;" << endl;
+    tripleValueByReference(testValue);
+    cout << "tripleValueByReference(testValue); testValue =  " << testValue << endl;
+    tripleValueByPointer(&testValue);
+    cout << "tripleValueByPointer(&testValue); testValue =  " << testValue << endl;
+}
+```
+
+Output:
+
+```text
+auto testValue = 4;
+tripleValueByReference(testValue); testValue =  12
+tripleValueByPointer(&testValue); testValue =  36
+```
+
+But beware that when you pass by pointer, you are allowed to pass a NULL pointer. When you pass by reference, the value must be initialized. Furthermore, if you are passing by a raw pointer, there is a chance that the value being pointed to could have been changed elsewhere.
+
 ## Arrays and Pointers
 
 As in C, we can use pointers to access arrays. For example if we create an array of integers, we can access its contents using a pointer,
@@ -54,7 +100,7 @@ There are three types of smart pointers in C++, they are,
 
 There also used to be another smart pointer called the **auto pointer**, but this was removed in C++17.
 
-All smart pointers are a *class* which manage raw pointers. You create them but you do not delete them, as the deletion is managed by the class. The usage for smart pointers is similar to that of raw pointers, meaning you use the `*` and `->` operators as you would with raw pointers.
+All smart pointers are *classes* which manage raw pointers. You create them but you do not delete them, as the deletion is managed by the class. The usage for smart pointers is similar to that of raw pointers, meaning you use the `*` and `->` operators as you would with raw pointers.
 
 To use smart pointers, make sure to include them with,
 
