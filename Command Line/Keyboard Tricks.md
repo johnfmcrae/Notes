@@ -4,15 +4,15 @@
 
 From [Shotts](https://www.oreilly.com/library/view/the-linux-command/9781593273897/)
 
-| **Key**  | **Action**                                |
-|--------- |-------------------------------------------|
-| Ctrl+a   | Move cursor to the beginning of the line. |
-| Ctrl+e   | Move cursor to the end of the line.       |
-| Ctrl+f   | Move cursor forward one character.        |
-| Ctrl+b   | Move cursor backward one character.       |
-| Alt+f    | Move cursor forward one word.             |
-| Alt+b    | Move cursor backward one word.            |
-| Ctrl+l   | Same as the `clear` command               |
+| **Key**    | **Action**                                |
+|---------   |-------------------------------------------|
+| `Ctrl+a`   | Move cursor to the beginning of the line. |
+| `Ctrl+e`   | Move cursor to the end of the line.       |
+| `Ctrl+f`   | Move cursor forward one character.        |
+| `Ctrl+b`   | Move cursor backward one character.       |
+| `Alt+f`    | Move cursor forward one word.             |
+| `Alt+b`    | Move cursor backward one word.            |
+| `Ctrl+l`   | Same as the `clear` command               |
 
 ## Killing and Moving Text
 
