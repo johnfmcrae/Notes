@@ -62,6 +62,8 @@ The basic delete commands in Vim are the `x` and `d` commands. You can use the `
 
 You can undo a delete operation with the `u` command.
 
+The capital `J` command joins the current line with the next line.
+
 ## Copy, Cut, Paste
 
 Deleting text in Vim also adds it to the clipboard. A delete command bundles in a cut fro free!
