@@ -22,3 +22,5 @@ The inheritance access mode of a derived class determines the access scope of th
 Don't forget that the derived class can never access the base class' private members.
 
 The access modes change the access of the members relative to the derived class. So a derived class with private inheritance makes all of the inherited members private. So in this example, the calling context of the derived class will not have access to any of the base class' members, because the derived class is using private inheritance.
+
+[Contents](_main_cpp_notes.md)

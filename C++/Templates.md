@@ -140,10 +140,12 @@ The sum is recursively calling shorter tails of the args until we get to Sum() a
 
 ```cpp
 int main() {
-	cout << Sum(1, 2, 3, 4) << "\n";
-	cout << Sum(1.2, 2.3, 3.1, 4) << "\n";          // 10.6
-	cout << Sum(1, 2.3, 3.1, 4.2) << "\n";          // 10, first value an int
-	cout << Sum<double>(1, 2.3, 3.1, 4.2) << "\n";  // 10.6, specify output as double
-	return 0;
+  cout << Sum(1, 2, 3, 4) << "\n";
+  cout << Sum(1.2, 2.3, 3.1, 4) << "\n";          // 10.6
+  cout << Sum(1, 2.3, 3.1, 4.2) << "\n";          // 10, first value an int
+  cout << Sum<double>(1, 2.3, 3.1, 4.2) << "\n";  // 10.6, specify output as double
+  return 0;
 }
 ```
+
+[Contents](_main_cpp_notes.md)

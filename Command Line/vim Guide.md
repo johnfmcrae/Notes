@@ -73,3 +73,5 @@ Copying in Vim is called *yanking*, which is unfortunate because that is the ter
 To paste text use the `p` command.
 
 You can access early items in the cut and yank register. Register entries are numbered 0 to 9. Access the register with the `"` character. So to paste the third last item, use `"3p`.
+
+[Contents](_main_command_line_notes.md)

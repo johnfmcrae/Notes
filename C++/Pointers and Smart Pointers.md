@@ -187,3 +187,5 @@ Like unique pointer, there is also a make function which can be used with **`aut
 ```cpp
 auto p4 = make_shared<int>(20); // preferred style
 ```
+
+[Contents](_main_cpp_notes.md)

@@ -53,3 +53,5 @@ int main() {
 ```
 
 Note that in the above example we didn't need to evaluate the anonymous function due to the nature of the `count_if` function. However, in most cases you do need to provide an input to an anonymous function with `()`.
+
+[Contents](_main_cpp_notes.md)

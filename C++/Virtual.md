@@ -16,3 +16,5 @@ public:
 ```
 
 You cannot use Container or its member functions on its own. The fact that Container contains virtual functions makes it an **abstract class**. You must explicitly define a new class which can inherit from Container, but this class must then define its implementation of the virtual functions given in Container. In other words, Container is acting solely as an **interface** and a class derived from it must provide its own representation.
+
+[Contents](_main_cpp_notes.md)

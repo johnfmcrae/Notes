@@ -84,3 +84,5 @@ int main () {
 ```
 
 Another handy function is the `std::getline(input, str, delim)`, which will return one line at a time into the input string `str`. The delimiter `delim` is optional and by default is the new line character.
+
+[Contents](_main_cpp_notes.md)

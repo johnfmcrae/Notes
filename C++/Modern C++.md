@@ -18,3 +18,5 @@ std::string s2 = "test";  // copy initialization
 T object {other};   // direct list initialization 
 T object = {other}; // copy list initialization
 ```
+
+[Contents](_main_cpp_notes.md)

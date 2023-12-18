@@ -264,3 +264,5 @@ int main() {
     // Employee e2(10.5, "Jim"); // prevented by the deleted function
 }
 ```
+
+[Contents](_main_cpp_notes.md)
