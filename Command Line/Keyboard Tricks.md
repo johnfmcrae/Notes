@@ -1,5 +1,14 @@
 # Command Line Keyboard Tricks
 
+## Key Mappings on Mac
+
+Mac uses the following key bindings:
+
+- `control` key for `Ctrl`
+- `Esc+` for `Alt`
+
+When using `Esc+`, do not hold down the key as you would when using `Alt`.
+
 ## Cursor Movement
 
 From [Shotts](https://www.oreilly.com/library/view/the-linux-command/9781593273897/)
