@@ -17,7 +17,7 @@ The inheritance access mode of a derived class determines the access scope of th
 
 - **Public inheritance** maintains the access scope of the base class. Public members remain public and protected members remain protected.
 - **Protected inheritance** changes the access scope of the public members to protected. Public members become *protected* and protected members remain protected.
-- **Private inheritance** changes the access scope of all of the members to private. Public members as  become private and the private members become private.
+- **Private inheritance** changes the access scope of all of the members to private. Public member become private and the private members become private.
 
 Don't forget that the derived class can never access the base class' private members.
 
