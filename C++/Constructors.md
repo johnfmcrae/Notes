@@ -235,7 +235,7 @@ public:
 };
 ```
 
-You can add a line to prevent other types being passed into the Employee constructor function,
+You can add a line to prevent other types being passed into the Employee constructor,
 
 ```cpp
 class Employee {
@@ -263,6 +263,44 @@ int main() {
 
     // Employee e2(10.5, "Jim"); // prevented by the deleted function
 }
+```
+
+## Copy and Move Constructors
+
+You can create custom copy constructors, assignment operators, and move constructors in C++. The former two use lvalue references and the latter uses rvalue references.
+
+You should always define an assignment operator if you are making a custom copy constructor.
+
+One application of defining a copy constructor and assignment operator is to make an object *non-copyable*.  That could look something like this,
+
+```cpp
+class Window {
+    public:
+    Window(const Window&);
+    Window& operator=(const Window&);
+};
+```
+
+Make sure to use `**const**` when declaring copy constructors so that,
+
+1. The input cannot be accidentally modified
+2. The copy constructor can accept const values
+
+Here is an example of a move constructor from the C++ implementation of the strategy pattern,
+
+```cpp
+class Strategy {
+    public:
+    virtual ~Strategy() = default;
+    virtual std::String doAlgorithm(std::string_view data) const = 0; 
+};
+
+class Context {
+    private:
+    std::unique_ptr<Strategy> strategy_;
+    public:
+    explicit Context(std::unique_ptr<Strategy> &&strategy = {}) : strategy_(std::move(strategy)) {}
+};
 ```
 
 [Contents](_main_cpp_notes.md)

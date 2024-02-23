@@ -29,3 +29,5 @@ main int() {
     MyFunction(2);        // OK
 }
 ```
+
+[Contents](_main_cpp_notes.md)
