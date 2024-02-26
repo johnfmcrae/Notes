@@ -14,3 +14,5 @@ Stack memory is destroyed when it goes out of scope.
 C programmers use heap allocation to implement dynamic memory allocation. C++ programmers may also be interested in heap memory allocation when they need to allocate memory that persists beyond its scope because stack memory is destroyed when it goes out of scope. This idea should trigger some loud alarm bells in your mind however, because forgetting to deallocate heap memory is what leads to **memory leaks**.
 
 The heap is also referred to as *free store*.
+
+[Contents](_main_cpp_notes.md)

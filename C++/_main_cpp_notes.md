@@ -6,6 +6,7 @@ A collection of notes on C++ that I have made over the years of learning C++. Th
 - [Constructors](Constructors.md)
 - [Data Structures et cetera](Data%20Structures%20Etc.md)
 - [File IO.md](File%20IO.md)
+- [Heap and Stack Memory](Heap%20and%20Stack%20Memory.md)
 - [Inheritance](Inheritance.md)
 - [Lambda Expressions](Lambda%20Expressions.md)
 - [lvalues and rvalues](lvalues%20and%20rvalues.md)
