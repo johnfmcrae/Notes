@@ -57,3 +57,5 @@ Note that if `src` is set, the script content gets ignored
     alert( 'Hello from JS!'); // this content is ignored
 </script>
 ```
+
+[Contents](_main_javascript_notes.md)
