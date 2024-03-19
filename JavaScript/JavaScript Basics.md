@@ -81,3 +81,69 @@ JavaScript also supports constants with the `const` keyword. Use capitalized nam
 ```js
 const let SPEED_OF_LIGHT = 299792458;
 ```
+
+## Types
+
+There are eight data types in JavaScript
+
+- Number
+  - Includes both integer and floating point values
+  - Also includes special numeric values such as `Infinity` and `NaN`
+- BigInt
+  - An integer of arbitrary length
+  - Denoted by a trailing `n`, e.g. `bigInt = 123456789n;`
+  - Not currently supported in Internet Explorer
+- String
+  - Can be denoted by single quotes ('), double quotes ("), or backticks (`).
+  - Can embed variables with `${variable}` *if you are using backticks*
+- Boolean
+  - `true` or `false`
+- `null`
+  - does *not* mean a null reference
+  - simply means "nothing", "empty", or  "unkown"
+- `undefined`
+  - used for the default initial value of a variable
+- Symbol
+  - for unique identifiers
+- Objects
+
+The `typeof` operator returns the type of a variable as a string. Beware that `typeof` has a bug where it reports the type of `null` as "object", which is incorrect but has been kept around for compatibility reasons.
+
+### Conversion
+
+For the most part, conversion works as you would expect. Here are a few notable cases and exceptions,
+
+```js
+Number(NaN)        // 0
+Number(undefined)  // NaN
+Boolean("abc")     // true
+Boolean("0")       // true
+Boolean(" ")       // true
+Boolean("")        // false
+Boolean(0)         // false
+Boolean(null)      // false
+Boolean(undefined) // false
+Boolean(NaN)       // false
+```
+
+You can also use the plus sign `+` as a unary operator to do numeric conversion
+
+```js
++""   // 0
++"3"  // 3
++true // 1
+```
+
+## Operators
+
+JavaScript has all the good old operators. It also has,
+
+- String concatenation with `+`
+- Modify-in-place operators `+=` and `*=`
+- Increment and decrement operators in both prefix and postfix form
+
+## Conditionals, Loops, and So On
+
+Conditionals, loops, breaks, switch cases, and the like work like they do in C.
+
+JavaScript also has **arrow functions** which function like lambdas.
