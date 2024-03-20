@@ -147,3 +147,5 @@ JavaScript has all the good old operators. It also has,
 Conditionals, loops, breaks, switch cases, and the like work like they do in C.
 
 JavaScript also has **arrow functions** which function like lambdas.
+
+[Contents](_main_javascript_notes.md)
