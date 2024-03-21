@@ -142,9 +142,57 @@ JavaScript has all the good old operators. It also has,
 - Modify-in-place operators `+=` and `*=`
 - Increment and decrement operators in both prefix and postfix form
 
+## Comparisons
+
+Comparisons are pretty much what you would expect.. for the most part.
+
+When doing an equals comparison with the `==` operator, JavScript casts the variables.
+
+```js
+alert( '01' == 1 ); // true
+alert( true == 1 ); // true
+```
+
+If you want to avoid casting, you need to use the **strict equality** operator, `===`.
+
+```js
+alert( true == 1 );  // true
+alert( true === 1 ); // false
+```
+
+Also beware how `null` and `undefined` behave with each operator,
+
+```js
+alert( null == undefined );  // true
+alert( null === undefined ); // false
+```
+
 ## Conditionals, Loops, and So On
 
 Conditionals, loops, breaks, switch cases, and the like work like they do in C.
+
+However, JavaScript being what it is, you can also skip some stuff in the loop conditions (blasphemy, I know).
+
+```js
+// skip the begin
+let i = 0; // we have i already declared and assigned
+
+for (; i < 3; i++) { // no need for "begin"
+  alert( i ); // 0, 1, 2
+}
+
+// skip the step, same as using a while loop
+let i = 0;
+
+for (; i < 3;) {
+  alert( i++ );
+}
+
+// skip it all, infinite loop
+for (;;) {
+  // repeats without limits
+}
+```
 
 JavaScript also has **arrow functions** which function like lambdas.
 
