@@ -243,7 +243,7 @@ user.sizes.width = 60;    // change a property from one place
 alert(clone.sizes.width); // 60, get the result from the other one
 ```
 
-To perform a **depp clone**, use the `structuredClone` method.
+To perform a **deep clone**, use the `structuredClone` method.
 
 ```js
 let user = {
