@@ -164,4 +164,103 @@ for (let code in codes) {
 }
 ```
 
+## Objects and References
+
+In JavaScript, primitives are always stored **by value** and objects are always stored **by reference**.
+
+Consequently, assignment operations on objects always copy the reference and do not duplicate the value in memory.
+
+```js
+let user = { name: "Jack" };
+let admin = user; // admin points to the same value in memory as user
+```
+
+In a sense, you can think of objects like you would pointers in C. With that in mind, consider the following,
+
+```js
+let a = {};
+let b = a; // b points to the same address as a
+
+alert( a == b && a === b); // both true
+
+let c = {}; // c points to some address
+let d = {}; // d points to some other address
+alert( c == d ); // false, addresses are not the same
+```
+
+In order for object comparison to return a `true`, the objects being compared must be the same.
+
+You can copy the value of an object using the `Object.assign(destination, ...sources)` function.
+
+```js
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copies all properties from permissions1 and permissions2 into user
+Object.assign(user, permissions1, permissions2);
+
+// now user = { name: "John", canView: true, canEdit: true }
+alert(user.name); // John
+alert(user.canView); // true
+alert(user.canEdit); // true
+```
+
+Leaving the `destination` parameter empty lets you perform a clone of an object,
+
+```js
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = Object.assign({}, user);
+
+alert(clone.name); // John
+alert(clone.age); // 30
+```
+
+### Deep Clones
+
+Cloning an object that has a nested object will copy a reference to the nested object, as opposed to cloning that object also.
+
+```js
+let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let clone = Object.assign({}, user);
+
+alert( user.sizes === clone.sizes ); // true, same object
+
+// user and clone share sizes
+user.sizes.width = 60;    // change a property from one place
+alert(clone.sizes.width); // 60, get the result from the other one
+```
+
+To perform a **depp clone**, use the `structuredClone` method.
+
+```js
+let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let clone = structuredClone(user);
+
+alert( user.sizes === clone.sizes ); // false, different objects
+
+// user and clone are totally unrelated now
+user.sizes.width = 60;    // change a property from one place
+alert(clone.sizes.width); // 50, not related
+```
+
 [Contents](_main_javascript_notes.md)
