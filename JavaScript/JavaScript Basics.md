@@ -109,6 +109,25 @@ There are eight data types in JavaScript
 
 The `typeof` operator returns the type of a variable as a string. Beware that `typeof` has a bug where it reports the type of `null` as "object", which is incorrect but has been kept around for compatibility reasons.
 
+### More on Numbers
+
+You can add underscores to numbers if you want to make the numbers more readable,
+
+```js
+let billion = 1000000000;
+let billion = 1_000_000_000; // same as above
+```
+
+The underscore works as **syntactic sugar**, meaning it is syntax that makes the code easier to read but doesn't change the program behaviour.
+
+Different numeric representations are indicated as in other languages,
+
+```js
+let hexNumber    = 0xff;       // 255
+let binaryNumber = 0b11111111; // 255
+let octalNumber  = 0o377;      // 255
+```
+
 ### Conversion
 
 For the most part, conversion works as you would expect. Here are a few notable cases and exceptions,

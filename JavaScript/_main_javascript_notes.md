@@ -6,3 +6,4 @@ Notes mostly based off of [The Modern JavaScript Tutorial](https://javascript.in
 - [JavaScript Basics](JavaScript%20Basics.md)
 - [Code Quality](Code%20Quality.md)
 - [Objects](Objects.md)
+- [Containers](Containers.md)

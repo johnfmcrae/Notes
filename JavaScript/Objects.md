@@ -263,4 +263,34 @@ user.sizes.width = 60;    // change a property from one place
 alert(clone.sizes.width); // 50, not related
 ```
 
+## Optional Chaining
+
+JavaScript offers an operator, called the **optional chaining** operator, `?.` that gracefully handles cases when an object property does not exist. Take the following example,
+
+```js
+let adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah',
+  },
+}
+
+let dogName = adventurer.dog.name;
+console.log(dogName) // error
+```
+
+You can of course add explicit checking to make sure an object's properties are not null, or you can use the optional chaining operator. The optional chaining operator returns `undefined` if the property or object you are trying to access is `null` or `undefined`. It's the same idea (and operator) as the null-conditional operator in C#.
+
+```js
+let adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah',
+  },
+}
+
+let dogName = adventurer.dog?.name;
+console.log(dogName) // output: undefined
+```
+
 [Contents](_main_javascript_notes.md)
