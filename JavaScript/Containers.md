@@ -36,4 +36,15 @@ let fruits = ["Apple", "Orange", "Plum"];
 alert( fruits.length ); // 3
 ```
 
+### Operations on Arrays
+
+JavaScript supports the following add and access operations:
+
+- `push` adds an item to the end of the array
+- `pop` returns and removes the last item from the array
+- `shift` returns and removes the first item in the array
+- `unshift` adds an item to the beginning of the array
+
+You can therefore use arrays as either a stack or a queue.s
+
 [Contents](_main_javascript_notes.md)
