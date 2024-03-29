@@ -45,6 +45,32 @@ JavaScript supports the following add and access operations:
 - `shift` returns and removes the first item in the array
 - `unshift` adds an item to the beginning of the array
 
-You can therefore use arrays as either a stack or a queue.s
+You can therefore use arrays as either a stack or a queue.
+
+Be advised that manipulating an array as a stack using the `push` and `pop` metods is more performant than moving the whole array around with the `shift` and `unshoft` methods.
+
+### Looping Over Arrays
+
+Recall the `for..in` syntax from [objects](Objects.md),
+
+```js
+let fruits = ["Apple", "Orange", "Pear"];
+
+for (let key in fruits) {
+  alert( fruits[key] );
+}
+```
+
+This is convenient if you need to use the keys in your loop. If not, the `for..of` syntax is a cleaner option,
+
+```js
+let fruits = ["Apple", "Orange", "Plum"];
+
+for (let fruit of fruits) {
+  alert( fruit );
+}
+```
+
+Furthermore, `for..of` is optimized for looping over arrays and the `for..in` loop will access *all* of the properties of your array, which risks leading to nasty bugs. In general, stick with `for..of` for arrays.
 
 [Contents](_main_javascript_notes.md)
