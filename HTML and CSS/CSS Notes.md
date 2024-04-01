@@ -2,6 +2,13 @@
 
 Quick notes about CSS
 
+## Units
+
+- `em` element
+- `rem` root element
+- `vh` view height
+- `vw` view width
+
 ## The id Attribute
 
 You an add an id in HTML,
