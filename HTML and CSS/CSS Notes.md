@@ -62,3 +62,13 @@ body{
     font: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
 }
 ```
+
+## Borders
+
+CSS has a shorthand for borders:
+
+```css
+element {
+    border: <style> <colour> <width>;
+}
+```
