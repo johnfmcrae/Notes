@@ -90,3 +90,21 @@ Use the following to get CSS to take borders into account for sizing,
   box-sizing: border-box;
 }
 ```
+
+## Screen Reader Only Styling
+
+Add a description in an HTML `<span>` and style it with,
+
+```css
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+```
