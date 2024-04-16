@@ -1,6 +1,6 @@
 # Objects
 
-**Objects** in JavaScript are one of the eight data types supported by the language. Objects are not primitive; they can store data. JavaScript also has **classes**, which invoke a constructor and do other useful OOP things. In general then, you can think of JavaScript objects as a map/dictionary. JavaScript stores key-value pairs in objects, such as,
+**Objects** in JavaScript are one of the eight data types supported by the language. Objects are not primitive; they can store data. Objects can also have methods, so they're not quite like structs in C. JavaScript also has **classes**, which invoke a constructor and do other useful OOP things. In general then, you can think of JavaScript objects as a map/dictionary. JavaScript stores key-value pairs in objects, such as,
 
 ```js
 let user = {
@@ -273,7 +273,7 @@ let adventurer = {
   cat: {
     name: 'Dinah',
   },
-}
+};
 
 let dogName = adventurer.dog.name;
 console.log(dogName) // error
@@ -287,10 +287,38 @@ let adventurer = {
   cat: {
     name: 'Dinah',
   },
-}
+};
 
 let dogName = adventurer.dog?.name;
 console.log(dogName) // output: undefined
+```
+
+## Object Methods
+
+Object methods are expressed within a class definition, just like in other languages,
+
+```js
+let user = {
+  sayHi() {
+    alert("Hello");
+  }
+};
+
+user.sayHi(); // Hello
+```
+
+Alternatively, you can use the `function` keyword explicitly to define methods, either within the initial object definition or outside of it.
+
+```js
+let user = {
+  sayHi: function() {
+    alert("Hello");
+  }
+};
+
+user.sayBye = function() {
+  alert("Goodbye!");
+}; // note the semicolon
 ```
 
 [Contents](_main_javascript_notes.md)
