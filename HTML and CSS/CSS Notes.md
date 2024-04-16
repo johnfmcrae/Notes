@@ -53,6 +53,16 @@ input[name="user-email"] {
 }
 ```
 
+You can also exclude certain elements with the `:not` pseudo selector,
+
+```css
+.my-container p:not(.no-divider) {
+    border-bottom: 1px solid #888989;
+}
+```
+
+The above will add a border to all of the p elements in my-container that do not also have the no-divider class.
+
 ## Fallbacks
 
 You can add **fallback** value which will be applied if the first value doesn't work in a particular browser. Fallbacks are often used when setting fonts, for example,
@@ -63,12 +73,38 @@ body{
 }
 ```
 
-## Borders
+## Boxes, Containers, and So On
 
 CSS has a shorthand for borders:
 
 ```css
 element {
     border: <style> <colour> <width>;
+}
+```
+
+Use the following to get CSS to take borders into account for sizing,
+
+```css
+ * {
+  box-sizing: border-box;
+}
+```
+
+## Screen Reader Only Styling
+
+Add a description in an HTML `<span>` and style it with,
+
+```css
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 ```
