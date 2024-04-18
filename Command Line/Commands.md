@@ -10,6 +10,7 @@ An index of commands for the Linux command line. For more info, use the help or 
 - mv
 - file
 - less
+- more
 
 ## File Information
 
@@ -21,4 +22,4 @@ An index of commands for the Linux command line. For more info, use the help or 
 - info
 - whatis
 - alias
-
+- find
