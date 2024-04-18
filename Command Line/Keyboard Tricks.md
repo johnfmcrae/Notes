@@ -23,6 +23,12 @@ From [Shotts](https://www.oreilly.com/library/view/the-linux-command/97815932738
 | `Alt+b`    | Move cursor backward one word.            |
 | `Ctrl+l`   | Same as the `clear` command               |
 
+## Scrolling
+
+You can scroll through outputs on the command line with `Shift + Page Up` and `Shift + Page Down` 
+
+On Mac you can get `Page Up` and `Page Down` by using `Fn + Arrow Key`.
+
 ## Killing and Moving Text
 
 The familiar concept of copying pasting has an approximate analog in Unix called *killing* and *yanking*. These commands cover deleting text, storing that text in something called the *kill ring* and accessing the text stored in that ring.
