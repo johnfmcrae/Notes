@@ -41,6 +41,8 @@ In Unix, you can use the `Delete` and `Backspace` keys as expected. You can also
 
 - `Ctrl+k`: Kill text from the cursor location to the end of line
 - `Ctrl+u`: Kill text from the cursor location to the beginning of the line.
+- `Alt+d`: Kill text from the cursor to the end of the next word.
+- `Alt+del` (on Windows, the `del` is Backspace): Kill text from the cursor to the beginning of the last word.
 
 ### Yanking
 
