@@ -23,3 +23,7 @@ An index of commands for the Linux command line. For more info, use the help or 
 - whatis
 - alias
 - find
+
+## Permissions
+
+- chmod
