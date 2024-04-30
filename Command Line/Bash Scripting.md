@@ -19,3 +19,31 @@ echo $MESSAGE
 ```
 
 Use `read` to get user input.
+
+
+## Loops and Conditionals
+
+Conditionals use the `if`, `else`, and `elif` keywords in bash. You must also specify the code to run with a `then` command and close the conditional with a `fi`.
+
+```sh
+if [[ condition == true ]]
+then
+    echo Hello!
+elif [[ otherCondition == true ]]
+then
+    echo Wow!
+else
+    echo That's it folks!
+fi
+```
+
+You don't need the `then` after an `else`. Notice that above we're using double square brackets. You can also use a semicolon for the condition.
+
+```sh
+if [ condition == true ];
+then
+    echo "It is true"
+fi
+```
+
+A `true` value in the shell is returned as a 0 and a `false` is returned as a 1. Think of these values as the number of errors returned by the command line.
