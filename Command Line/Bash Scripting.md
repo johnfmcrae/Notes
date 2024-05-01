@@ -47,3 +47,16 @@ fi
 ```
 
 A `true` value in the shell is returned as a 0 and a `false` is returned as a 1. Think of these values as the number of errors returned by the command line.
+
+## Arithmetic
+
+You can use double parentheses `((...))`for arithmetic operations.
+
+```sh
+((sum = 5 + 3))
+echo $sum  # Output: 8
+
+VAL=2
+((VAL--))
+echo $VAL # Output: 1
+```
