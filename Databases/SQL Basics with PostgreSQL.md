@@ -1,4 +1,4 @@
-# PostgreSQL Basics
+# SQL Basics with PostgreSQL
 
 PostgreSQL is a relational database management system that supports relational (SQL) and non-relational (JSON) data.
 
@@ -56,6 +56,18 @@ To view everything in a table use,
 SELECT * FROM <TableName>
 ```
 
+To view the rows from a specific column
+
+```sql
+SELECT columns FROM table_name;
+```
+
+You can also add conditions to narrow down your search
+
+```sql
+SELECT columns FROM table_name WHERE condition;
+```
+
 ### Update
 
 Modify a row with
@@ -90,3 +102,33 @@ Here are some of the classics:
 | money                     |                    | currency amount                                                    |
 
 The *precision* in the numeric type refers to the number of significant figures. *Scale* refers to the number of decimal places.
+
+## Keys and Joins
+
+### Keys
+
+Uniquely identify each row in a table with a *primary key*. Add a primary key with,
+
+```sql
+ALTER TABLE table_name ADD PRIMARY KEY(column_name);
+```
+
+Reference another table using a *foreign key*. Add a foreign key with,
+
+```sql
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
+```
+
+Enforce a one-to-one relationship between a foreign key and the table it references with,
+
+```sql
+ALTER TABLE table_name ADD UNIQUE(column_name);
+```
+
+### Joins
+
+View the full join of two tables with,
+
+```sql
+SELECT columns FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;
+```
