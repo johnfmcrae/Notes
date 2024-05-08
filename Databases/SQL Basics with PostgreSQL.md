@@ -20,7 +20,7 @@ postgres => \c my_database
 
 Create a database with `CREATE DATABASE <name>`.
 
-Once connected to a database, create a table with `CREATE TABLE <name>`.
+Once connected to a database, create a table with `CREATE TABLE <name>()`.
 
 View all tables with `\d`. View table details with `\d <table name>`
 
