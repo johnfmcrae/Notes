@@ -44,12 +44,52 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: constellation; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.constellation (
+    id integer NOT NULL,
+    name text
+);
+
+
+ALTER TABLE public.constellation OWNER TO freecodecamp;
+
+--
+-- Name: constellation_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.constellation_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.constellation_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: constellation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.constellation_id_seq OWNED BY public.constellation.id;
+
+
+--
 -- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.galaxy (
     id integer NOT NULL,
-    name text
+    name text,
+    galaxy_type text,
+    age_in_million_years integer,
+    distance_from_earth_lightyears integer,
+    is_observable_to_eye boolean,
+    stars text,
+    in_constellation text
 );
 
 
@@ -83,7 +123,10 @@ ALTER SEQUENCE public.galaxy_id_seq OWNED BY public.galaxy.id;
 
 CREATE TABLE public.moon (
     id integer NOT NULL,
-    name text
+    name text,
+    age_in_millions_years integer,
+    distance_from_earth_lightyears numeric(4,0),
+    orbits_plant text
 );
 
 
@@ -117,7 +160,13 @@ ALTER SEQUENCE public.moon_id_seq OWNED BY public.moon.id;
 
 CREATE TABLE public.planet (
     id integer NOT NULL,
-    name text
+    name text,
+    age_in_million_years integer,
+    distance_from_earth_lightyears numeric(4,0),
+    is_observable_to_eye boolean,
+    moons text,
+    orbits_star text,
+    in_constellation text
 );
 
 
@@ -151,7 +200,14 @@ ALTER SEQUENCE public.planet_id_seq OWNED BY public.planet.id;
 
 CREATE TABLE public.star (
     id integer NOT NULL,
-    name text
+    name text,
+    star_type text,
+    age_in_million_years integer,
+    distance_from_earth_lightyears integer,
+    is_observable_to_eye boolean,
+    orbitting_planets text,
+    parent_galaxy text,
+    in_constellation text
 );
 
 
@@ -177,6 +233,13 @@ ALTER TABLE public.star_id_seq OWNER TO freecodecamp;
 --
 
 ALTER SEQUENCE public.star_id_seq OWNED BY public.star.id;
+
+
+--
+-- Name: constellation id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.constellation ALTER COLUMN id SET DEFAULT nextval('public.constellation_id_seq'::regclass);
 
 
 --
@@ -208,6 +271,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN id SET DEFAULT nextval('public.star_id
 
 
 --
+-- Data for Name: constellation; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+
+
+--
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
@@ -229,6 +298,13 @@ ALTER TABLE ONLY public.star ALTER COLUMN id SET DEFAULT nextval('public.star_id
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+
+
+--
+-- Name: constellation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.constellation_id_seq', 1, false);
 
 
 --
@@ -257,6 +333,14 @@ SELECT pg_catalog.setval('public.planet_id_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('public.star_id_seq', 1, false);
+
+
+--
+-- Name: constellation constellation_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.constellation
+    ADD CONSTRAINT constellation_pkey PRIMARY KEY (id);
 
 
 --

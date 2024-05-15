@@ -1,0 +1,50 @@
+== Tables ==
+- galaxy
+- moon
+- planet
+- star
+
+== Galaxy ==
+id
+name
+galaxy_type
+age_in_million_years
+distance_from_earth_lightyears
+is_observable_to_eye
+stars
+in_constellation
+
+== Star ==
+id
+name
+star_type
+age_in_million_years
+distance_from_earth_lightyears
+is_observable_to_eye
+orbitting_planets
+parent_galaxy
+in_constellation
+
+== Planet ==
+id
+name
+age_in_million_years
+distance_from_earth_lightyears
+is_observable_to_eye
+moons
+orbits_star
+in_constellation
+
+== Moon ==
+id
+name
+age_in_million_years
+distance_from_earth_lightyears
+orbits_planet
+
+== Constellation ==
+id
+name
+stars
+planets
+galaxies
