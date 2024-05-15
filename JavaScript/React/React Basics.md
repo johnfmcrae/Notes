@@ -48,3 +48,9 @@ A combination of JavaScript code and HTML tags that describe what to display.
 ### Fragment
 
 A grouping of multiple elements.
+
+## Events
+
+Certain DOM elements have their own event triggers which React recognizes. For example, the HTML `<button>` element has an `onClick` attribute. When defining your own components, you can call the events what you want, but the convention is to use *on* as a prefix. So maybe you have a `helpButton` component, you would then want to give it a `onHelpButtonClick` event name.
+
+Similarly, event handlers typically start with a *handle* prefix. So in our example, the handler would be called `handleHelpButtonClick`.
