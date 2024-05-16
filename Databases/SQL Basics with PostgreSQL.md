@@ -38,6 +38,38 @@ Delete a column with,
 ALTER TABLE table_name DROP COLUMN column_name;
 ```
 
+Rename a column with,
+
+```sql
+ALTER TABLE table_name 
+RENAME COLUMN column_name TO new_column_name;
+```
+
+Enforce non-null columns withm
+
+```sql
+CREATE TABLE table_name(
+   ...
+   column_name data_type NOT NULL,
+   ...
+);
+```
+
+Change the datatype of a column with,
+
+```sql
+ALTER TABLE table_name
+ALTER COLUMN column_name 
+[SET DATA] TYPE new_data_type;
+```
+
+For example,
+
+```sql
+ALTER TABLE assets 
+ALTER COLUMN name TYPE VARCHAR(255);
+```
+
 ## CRUD Operations
 
 ### Create
@@ -103,7 +135,9 @@ Here are some of the classics:
 
 The *precision* in the numeric type refers to the number of significant figures. *Scale* refers to the number of decimal places.
 
-## Keys and Joins
+## Table References and Joins
+
+Use references to establish relationships between tables and joins to query those relationships.
 
 ### Keys
 
@@ -124,6 +158,27 @@ Enforce a one-to-one relationship between a foreign key and the table it referen
 ```sql
 ALTER TABLE table_name ADD UNIQUE(column_name);
 ```
+
+### One-to-Many Relationships
+
+Define one-to-many relationships by pointing the children to parent. For example
+
+```sql
+CREATE TABLE author (
+  id SERIAL PRIMARY KEY,
+  name TEXT
+)
+
+CREATE TABLE article (
+  id SERIAL PRIMARY KEY,
+  author_id INT NOT NULL,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES author(id)
+)
+```
+
+An author can have multiple articles and in my mind, I think of the author as owning different articles. In this case, the articles are what I'm thinking of as the "children" of the author, so the articles should refer to their "parent" author.
 
 ### Joins
 

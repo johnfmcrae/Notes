@@ -5,46 +5,49 @@
 - star
 
 == Galaxy ==
-id
+galaxy_id
 name
-galaxy_type
 age_in_million_years
 distance_from_earth_lightyears
 is_observable_to_eye
-stars
-in_constellation
+constellation_id - reference
 
 == Star ==
-id
+star_id
 name
-star_type
 age_in_million_years
 distance_from_earth_lightyears
 is_observable_to_eye
-orbitting_planets
-parent_galaxy
-in_constellation
+galaxy_id
+constellation_id - reference
 
 == Planet ==
-id
+planet_id
 name
 age_in_million_years
 distance_from_earth_lightyears
 is_observable_to_eye
-moons
-orbits_star
+star_id
 in_constellation
 
 == Moon ==
-id
+moon_id
 name
 age_in_million_years
 distance_from_earth_lightyears
-orbits_planet
+planet_id
 
 == Constellation ==
-id
+constellation_id
 name
-stars
-planets
-galaxies
+
+~~ ~~ ~~
+
+To Do
+
+x update all id's
+x change all name data types to VARCHAR
+x rename reference columns -> removed them, will remake when doing foreign keys
+x remove unused columns
+- make all of the names and distance from earth columns NOT NULL
+- add foreign keys to tables
