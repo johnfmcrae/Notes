@@ -10,7 +10,6 @@ name
 age_in_million_years
 distance_from_earth_lightyears
 is_observable_to_eye
-constellation_id - reference
 
 == Star ==
 star_id
@@ -19,7 +18,6 @@ age_in_million_years
 distance_from_earth_lightyears
 is_observable_to_eye
 galaxy_id
-constellation_id - reference
 
 == Planet ==
 planet_id
@@ -28,7 +26,6 @@ age_in_million_years
 distance_from_earth_lightyears
 is_observable_to_eye
 star_id
-in_constellation
 
 == Moon ==
 moon_id
@@ -40,6 +37,7 @@ planet_id
 == Constellation ==
 constellation_id
 name
+number_of_stars
 
 ~~ ~~ ~~
 
@@ -49,5 +47,11 @@ x update all id's
 x change all name data types to VARCHAR
 x rename reference columns -> removed them, will remake when doing foreign keys
 x remove unused columns
-- make all of the names and distance from earth columns NOT NULL
-- add foreign keys to tables
+x make all of the names and distance from earth columns NOT NULL
+x add foreign keys to tables
+x enforce unique names
+x add 6 galaxies
+- add 6 stars
+- add 12 planets
+- add 20 moons
+- add 3 constellations

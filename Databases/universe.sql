@@ -49,7 +49,8 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.constellation (
     constellation_id integer NOT NULL,
-    name character varying(63)
+    name character varying(63) NOT NULL,
+    number_of_stars integer
 );
 
 
@@ -83,7 +84,7 @@ ALTER SEQUENCE public.constellation_id_seq OWNED BY public.constellation.constel
 
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
-    name character varying(63),
+    name character varying(63) NOT NULL,
     age_in_million_years integer,
     distance_from_earth_lightyears integer,
     is_observable_to_eye boolean
@@ -120,9 +121,10 @@ ALTER SEQUENCE public.galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
-    name character varying(63),
+    name character varying(63) NOT NULL,
     age_in_millions_years integer,
-    distance_from_earth_lightyears numeric(4,0)
+    distance_from_earth_lightyears numeric(4,0),
+    planet_id integer
 );
 
 
@@ -156,10 +158,11 @@ ALTER SEQUENCE public.moon_id_seq OWNED BY public.moon.moon_id;
 
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
-    name character varying(63),
+    name character varying(63) NOT NULL,
     age_in_million_years integer,
     distance_from_earth_lightyears numeric(4,0),
-    is_observable_to_eye boolean
+    is_observable_to_eye boolean,
+    star_id integer
 );
 
 
@@ -193,10 +196,11 @@ ALTER SEQUENCE public.planet_id_seq OWNED BY public.planet.planet_id;
 
 CREATE TABLE public.star (
     star_id integer NOT NULL,
-    name character varying(63),
+    name character varying(63) NOT NULL,
     age_in_million_years integer,
-    distance_from_earth_lightyears integer,
-    is_observable_to_eye boolean
+    distance_from_earth_lightyears numeric(12,2),
+    is_observable_to_eye boolean,
+    galaxy_id integer
 );
 
 
@@ -269,6 +273,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy VALUES (1, 'Milky Way', 13600, 0, true);
+INSERT INTO public.galaxy VALUES (2, 'Andromeda', 10000, 2537000, true);
+INSERT INTO public.galaxy VALUES (3, 'Triangulum', 12000, 2730000, false);
+INSERT INTO public.galaxy VALUES (4, 'Large Magellanic Cloud', 13000, 163000, true);
+INSERT INTO public.galaxy VALUES (5, 'Small Magellanic Cloud', 13000, 200000, true);
+INSERT INTO public.galaxy VALUES (6, 'Whirlpool', 500, 23000000, false);
 
 
 --
@@ -287,6 +297,13 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES (1, 'Sirius', 300, 8.60, true, 1);
+INSERT INTO public.star VALUES (2, 'Betelgeuse', 10, 642.50, true, 1);
+INSERT INTO public.star VALUES (3, 'Vega', 450, 25.00, true, 1);
+INSERT INTO public.star VALUES (4, 'RS Andromedae', 2000, 2537000.00, false, 2);
+INSERT INTO public.star VALUES (5, 'V0614 Andromedae', 1000, 2537000.00, false, 2);
+INSERT INTO public.star VALUES (6, 'XMMU J004243.6+412519', 5000, 2537000.00, false, 2);
+INSERT INTO public.star VALUES (7, 'NGC 5194 X-1', 1000, 23000000.00, false, 6);
 
 
 --
@@ -300,7 +317,7 @@ SELECT pg_catalog.setval('public.constellation_id_seq', 1, false);
 -- Name: galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_id_seq', 6, true);
 
 
 --
@@ -321,7 +338,15 @@ SELECT pg_catalog.setval('public.planet_id_seq', 1, false);
 -- Name: star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_id_seq', 1, false);
+SELECT pg_catalog.setval('public.star_id_seq', 7, true);
+
+
+--
+-- Name: constellation constellation_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.constellation
+    ADD CONSTRAINT constellation_name_key UNIQUE (name);
 
 
 --
@@ -333,11 +358,27 @@ ALTER TABLE ONLY public.constellation
 
 
 --
+-- Name: galaxy galaxy_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT galaxy_name_key UNIQUE (name);
+
+
+--
 -- Name: galaxy galaxy_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.galaxy
     ADD CONSTRAINT galaxy_pkey PRIMARY KEY (galaxy_id);
+
+
+--
+-- Name: moon moon_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_name_key UNIQUE (name);
 
 
 --
@@ -349,6 +390,14 @@ ALTER TABLE ONLY public.moon
 
 
 --
+-- Name: planet planet_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_name_key UNIQUE (name);
+
+
+--
 -- Name: planet planet_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -357,11 +406,43 @@ ALTER TABLE ONLY public.planet
 
 
 --
+-- Name: star star_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_name_key UNIQUE (name);
+
+
+--
 -- Name: star star_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: planet planet_star_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_star_id_fkey FOREIGN KEY (star_id) REFERENCES public.star(star_id);
+
+
+--
+-- Name: star star_galaxy_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_galaxy_id_fkey FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
 
 
 --
