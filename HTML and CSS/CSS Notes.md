@@ -25,7 +25,7 @@ p {
 
 ## IDs and Attributes
 
-You an add an id in HTML,
+You can add an id in HTML,
 
 ```html
 <div id="main"></div>
@@ -53,7 +53,7 @@ input[name="user-email"] {
 }
 ```
 
-You can also exclude certain elements with the `:not` pseudo selector,
+You can also exclude certain elements with the `:not` pseudo-class,
 
 ```css
 .my-container p:not(.no-divider) {
@@ -62,6 +62,32 @@ You can also exclude certain elements with the `:not` pseudo selector,
 ```
 
 The above will add a border to all of the p elements in my-container that do not also have the no-divider class.
+
+## Pseudo Elements and Classes
+
+*Pseudo-elements* let you specify a specific subset of an element. For example, you may want to target the first element of a certain type. Pseudo-elements are specified with a double colon, `::`.
+
+```css
+.my-class::before {
+    color: white;
+}
+```
+
+You can also place the pseudo-elements in an element list,
+
+```css
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+```
+
+*Pseudo-classes* define the behaviour for a special state of an element and are denoted with a single colon, `:`. For example, you can use the `:hover` pseudo-class to define mouse hover behaviour.
+
+```css
+button:hover {
+  color: blue;
+}
+```
 
 ## Fallbacks
 
