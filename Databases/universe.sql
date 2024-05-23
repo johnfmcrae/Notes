@@ -123,7 +123,7 @@ CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(63) NOT NULL,
     age_in_millions_years integer,
-    distance_from_earth_lightyears numeric(4,0),
+    distance_from_earth_au numeric(12,4),
     planet_id integer
 );
 
@@ -160,7 +160,7 @@ CREATE TABLE public.planet (
     planet_id integer NOT NULL,
     name character varying(63) NOT NULL,
     age_in_million_years integer,
-    distance_from_earth_lightyears numeric(4,0),
+    distance_from_earth_lightyears numeric(12,4),
     is_observable_to_eye boolean,
     star_id integer
 );
@@ -267,6 +267,9 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: constellation; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.constellation VALUES (1, 'Orion', 400);
+INSERT INTO public.constellation VALUES (2, 'Big Dipper', 7);
+INSERT INTO public.constellation VALUES (3, 'Leo', 5);
 
 
 --
@@ -285,12 +288,44 @@ INSERT INTO public.galaxy VALUES (6, 'Whirlpool', 500, 23000000, false);
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES (1, 'Moon (Luna)', 4500, 0.0026, 3);
+INSERT INTO public.moon VALUES (2, 'Phobos', 4300, 0.0003, 4);
+INSERT INTO public.moon VALUES (3, 'Deimos', 4300, 0.0005, 4);
+INSERT INTO public.moon VALUES (4, 'Ganymede', 4500, 5.2044, 5);
+INSERT INTO public.moon VALUES (5, 'Callisto', 4500, 5.7010, 5);
+INSERT INTO public.moon VALUES (6, 'Io', 4500, 5.2073, 5);
+INSERT INTO public.moon VALUES (7, 'Europa', 4500, 5.2028, 5);
+INSERT INTO public.moon VALUES (8, 'Titan', 4500, 9.5371, 6);
+INSERT INTO public.moon VALUES (9, 'Rhea', 4500, 5.2706, 6);
+INSERT INTO public.moon VALUES (10, 'Mimas', 4500, 5.2185, 6);
+INSERT INTO public.moon VALUES (11, 'Tethys', 4500, 5.2748, 6);
+INSERT INTO public.moon VALUES (12, 'Dione', 4500, 5.2855, 6);
+INSERT INTO public.moon VALUES (13, 'Enceladus', 4500, 5.2677, 6);
+INSERT INTO public.moon VALUES (14, 'Methone', NULL, 5.2970, 6);
+INSERT INTO public.moon VALUES (15, 'Pandora', NULL, 5.2009, 6);
+INSERT INTO public.moon VALUES (16, 'Hyperion', 4500, 5.3406, 6);
+INSERT INTO public.moon VALUES (17, 'Iapetus', 4500, 5.8090, 6);
+INSERT INTO public.moon VALUES (18, 'Phoebe', 4500, 9.5567, 6);
+INSERT INTO public.moon VALUES (19, 'Miranda', 4500, 5.1025, 7);
+INSERT INTO public.moon VALUES (20, 'Nereid', NULL, 29.4141, 8);
 
 
 --
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES (1, 'Mercury', 4500, 0.0000, true, 1);
+INSERT INTO public.planet VALUES (2, 'Venus', 4500, 0.0000, true, 8);
+INSERT INTO public.planet VALUES (3, 'Earth', 4500, 0.0000, true, 8);
+INSERT INTO public.planet VALUES (4, 'Mars', 4500, 0.0000, true, 8);
+INSERT INTO public.planet VALUES (5, 'Jupiter', 4500, 0.0001, true, 8);
+INSERT INTO public.planet VALUES (6, 'Saturn', 4500, 0.0001, true, 8);
+INSERT INTO public.planet VALUES (7, 'Uranus', 4500, 0.0003, true, 8);
+INSERT INTO public.planet VALUES (8, 'Neptune', 4500, 0.0005, true, 8);
+INSERT INTO public.planet VALUES (9, 'Proxima Centauri b', 4850, 4.2400, false, 1);
+INSERT INTO public.planet VALUES (10, 'Sirius b', NULL, 8.6000, false, 1);
+INSERT INTO public.planet VALUES (11, 'Vega b', NULL, 25.0000, false, 3);
+INSERT INTO public.planet VALUES (12, 'Betelgeuse b', NULL, 642.5000, false, 2);
 
 
 --
@@ -304,13 +339,14 @@ INSERT INTO public.star VALUES (4, 'RS Andromedae', 2000, 2537000.00, false, 2);
 INSERT INTO public.star VALUES (5, 'V0614 Andromedae', 1000, 2537000.00, false, 2);
 INSERT INTO public.star VALUES (6, 'XMMU J004243.6+412519', 5000, 2537000.00, false, 2);
 INSERT INTO public.star VALUES (7, 'NGC 5194 X-1', 1000, 23000000.00, false, 6);
+INSERT INTO public.star VALUES (8, 'Sun', 4600, 0.01, true, 1);
 
 
 --
 -- Name: constellation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.constellation_id_seq', 1, false);
+SELECT pg_catalog.setval('public.constellation_id_seq', 3, true);
 
 
 --
@@ -324,21 +360,21 @@ SELECT pg_catalog.setval('public.galaxy_id_seq', 6, true);
 -- Name: moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_id_seq', 1, false);
+SELECT pg_catalog.setval('public.moon_id_seq', 20, true);
 
 
 --
 -- Name: planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_id_seq', 1, false);
+SELECT pg_catalog.setval('public.planet_id_seq', 12, true);
 
 
 --
 -- Name: star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_id_seq', 7, true);
+SELECT pg_catalog.setval('public.star_id_seq', 8, true);
 
 
 --
