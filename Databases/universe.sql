@@ -50,7 +50,8 @@ SET default_table_access_method = heap;
 CREATE TABLE public.constellation (
     constellation_id integer NOT NULL,
     name character varying(63) NOT NULL,
-    number_of_stars integer
+    number_of_stars integer,
+    rating text
 );
 
 
@@ -267,9 +268,9 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: constellation; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.constellation VALUES (1, 'Orion', 400);
-INSERT INTO public.constellation VALUES (2, 'Big Dipper', 7);
-INSERT INTO public.constellation VALUES (3, 'Leo', 5);
+INSERT INTO public.constellation VALUES (2, 'Big Dipper', 7, 'A');
+INSERT INTO public.constellation VALUES (1, 'Orion', 400, 'B');
+INSERT INTO public.constellation VALUES (3, 'Leo', 5, 'B');
 
 
 --

@@ -108,6 +108,14 @@ Modify a row with
 UPDATE table_name SET column_name=new_value WHERE condition;
 ```
 
+For example,
+
+```sql
+UPDATE courses
+SET published_date = '2020-08-01' 
+WHERE course_id = 3;
+```
+
 ### Delete
 
 Remove a row from a table with
