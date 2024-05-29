@@ -68,7 +68,7 @@ The capital `J` command joins the current line with the next line.
 
 Deleting text in Vim also adds it to the clipboard. A delete command bundles in a cut fro free!
 
-Copying in Vim is called *yanking*, which is unfortunate because that is the term for pasting in the terminal. To yank (copy) text in Vim, use the `y` command. The `y` command has all of the extensions that the `d` command has. For example `yy` yanks the current line, `yw` copies the current word, and so on.
+Copying in Vim is called *yanking*, which is unfortunate because that is the term for pasting in the terminal. To yank (copy) text in Vim, use the `y` command. The `y` command has all of the extensions that the `d` command has. For example `yy` yanks the current line, `yiw` copies the current word, and so on.
 
 To paste text use the `p` command.
 
