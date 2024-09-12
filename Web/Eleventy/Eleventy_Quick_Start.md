@@ -79,3 +79,24 @@ npm install @11ty/eleventy
 ```bash
 npm start
 ```
+
+## 3. Set Up Nunjucks
+
+- In the `.eleventy.js` file, specify Nunjucks as the template engine,
+
+```js
+module.exports = config => {
+    return {
+        markdownTemplateEngine: 'njk',
+        dataTemplateEngine: 'njk',
+        htmlTemplateEngine: 'njk',
+        dir: {
+            input: 'src',
+            output: 'dist'
+        }
+    };
+};
+```
+
+- Make an `\_includes` directory in the source directory, and inside that make a `\layouts` directory
+- The `layouts` directory is where you put your templates for your pages
