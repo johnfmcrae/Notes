@@ -8,3 +8,4 @@ Notes mostly based off of [The Modern JavaScript Tutorial](https://javascript.in
 - [Objects](Objects.md)
 - [Classes](Classes.md)
 - [Containers](Containers.md)
+- [Modules](Modules.md)

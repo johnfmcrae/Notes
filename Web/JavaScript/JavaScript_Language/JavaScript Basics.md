@@ -16,8 +16,8 @@ However, JavaScript can also perform **automatic semicolon insertion**.
 
 ```js
 // also works
-alert('Hello');
-alert('World');
+alert('Hello')
+alert('World')
 ```
 
 Automatic semicolons tend to work, but sometimes JavaScript gets it wrong, leading to nasty bugs. The community standard is therefore to **always use semicolons** in JavaScript.
@@ -163,7 +163,7 @@ JavaScript has all the good old operators. It also has,
 
 ## Comparisons
 
-Comparisons are pretty much what you would expect.. for the most part.
+Comparisons are pretty much what you would expect... for the most part.
 
 When doing an equals comparison with the `==` operator, JavScript casts the variables.
 
