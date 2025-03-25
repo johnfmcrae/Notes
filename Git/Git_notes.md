@@ -63,20 +63,6 @@ If you messed up your commit message and need to edit it, you can use,
 git commit --amend
 ```
 
-## Customizing the Log Output
-
-To view the names and status of changed files,
-
-```git
-git log --name-status
-```
-
-To see a graph of the current branches,
-
-```git
-git log --graph
-```
-
 ## Stashing Work
 
 You can use the **stashing** to hold onto the changes in your project that you'd like to save but that aren't ready to commit. To start, use the command,
@@ -218,6 +204,36 @@ Putting changes into the remote requires you to run the `git push` command. The 
 git push origin <local name>:<remote name>
 ```
 
+### Remote Branches
+
+To see all of the branches on the remote, you can run,
+
+```git
+git branch -r
+```
+
+Alternatively, running
+
+```git
+git branch -a
+```
+
+Will return the same thing but with `remotes/` in front of the `origin/*` names.
+
+To switch to a remote branch, use,
+
+```git
+git switch [branch_to_checkout]
+```
+
+### Pruning Branches
+
+It can be worth using the `--prune` flag when calling a `fetch` to get changes from the remote repository. Using prune will remove any local branches that have also been removed in the remote. Alternatively, if you don't want to remember needing to do this, you can configure fetch to always prune with,
+
+```git
+git config fetch.prune true
+```
+
 ## Rebasing
 
 A rebase can provide the same result as a merge: taking one branch and bringing it into another. But whereas a merge simply combines the pointers from two branches, a rebase will apply the changes themselves and create a new commit. In the simplest case, performing a rebase will result in a linear history. As an example, if you were to have a `master` and an `experiment` branch, you could rebase the experiment onto the master with,
@@ -319,4 +335,24 @@ Show configuration settings and locations
 
 ```git
 git config --list --show-origin
+```
+
+### Customizing the Log Output
+
+To view the names and status of changed files,
+
+```git
+git log --name-status
+```
+
+To see a graph of the current branches,
+
+```git
+git log --graph
+```
+
+You can also add a few more flags to make the graph look a bit nicer,
+
+```git
+git log --graph --all --decorate --oneline
 ```
