@@ -204,8 +204,6 @@ Putting changes into the remote requires you to run the `git push` command. The 
 git push origin <local name>:<remote name>
 ```
 
-### Remote Branches
-
 To see all of the branches on the remote, you can run,
 
 ```git
