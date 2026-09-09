@@ -3,6 +3,7 @@
 A collection of notes on C++ that I have made over the years of learning C++. The notes are organized alphabetically by topic. There is also a folder of notes on the JUCE framework.
 
 - [CMake Basics](CMake%20Basics.md)
+  - [Building with CMake](Building%20with%20CMake.md)
 - [Constructors](Constructors.md)
 - [Data Structures et cetera](Data%20Structures%20Etc.md)
 - [File IO.md](File%20IO.md)
